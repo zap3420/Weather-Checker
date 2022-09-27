@@ -146,18 +146,17 @@ function displayNews(response){
     publishedDate4.innerHTML = moment(`${response.articles[3].publishedAt}`).fromNow();
 }
 //run 
-
-// if(window.attachEvent) {
-//     window.attachEvent('onload', getNews());
-// } else {
-//     if(window.onload) {
-//         var curronload = window.onload;
-//         var newonload = function(evt) {
-//             curronload(evt);
-//             yourFunctionName(evt);
-//         };
-//         window.onload = newonload;
-//     } else {
-//         window.onload = getNews();
-//     }
-// }
+if(window.attachEvent) {
+    window.attachEvent('onload', getNews());
+} else {
+    if(window.onload) {
+        var curronload = window.onload;
+        var newonload = function(evt) {
+            curronload(evt);
+            yourFunctionName(evt);
+        };
+        window.onload = newonload;
+    } else {
+        window.onload = getNews();
+    }
+}

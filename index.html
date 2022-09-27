@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/icon.png" type="image/icon type">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Weather Checker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <button class="btn btn-outline-warning" type="button" id="geolocation"><i class="fa-solid fa-location-dot"></i>&nbsp;Check Weather at your Location</button>
+          </div>
+        </div>
+      </nav>
+    <div class="app-wrap">
+      <header>
+          <input type="text" autocomplete="off" class="search-box" placeholder="Search for a city">
+      </header>
+    <div class="row">
+      <main class="col" data-tilt data-tilt-max="10" data-tilt-speed="100" data-tilt-perspective="1000">
+          <section class="location">
+            <div class="city"></div>
+            <div class="date"></div>
+            <div class="current">
+            <div class="temp"><span></span></div>
+            <div class="weather"></div>
+            <div class="hi-low"></div>
+            <div class="wind"></div>
+            <div class="humidity"></div>
+          </div>
+          </section>
+      </main>
+      <section class="col">
+      <h2 id="title">Latest Weather News</h2>
+      <div class="wrapper">
+        <div class="box one">
+          <img class ="image1" src="" width="100" height="100" alt="newsImage" style="float:right">
+          <a class="link1" href="" target="_blank"><div class="title1">News Tittle 1</div></a>
+          <p class="description1">News Description</p>
+          <div class="published1">Published date</div>
+        </div>
+        <div class="box two">
+          <img class ="image2" src="" width="100" height="100" alt="newsImage" style="float:right">
+          <a class="link2" href="" target="_blank"><div class="title2">News Tittle 2</div></a>
+          <p class="description2">News Description</p>
+          <div class="published2">Published date</div>
+        </div>
+        <div class="box three">
+          <img class ="image3" src="" width="100" height="100" alt="newsImage" style="float:right">
+          <a class="link3" href="" target="_blank"><div class="title3">News Tittle 3</div></a>
+          <p class="description3">News Description</p>
+          <div class="published3">Published date</div>
+        </div>
+        <div class="box four">
+          <img class ="image4"src="" width="100" height="100" alt="newsImage" style="float:right">
+          <a class="link4" href="" target="_blank"><div class="title4">News Tittle 4</div></a>
+          <p class="description4">News Description</p>
+          <div class="published4">Published date</div>
+        </div>
+      </div>
+      </section>
+    </div>
+    </div><br>
+    <footer class="bg-primary text-center text-white">
+      <!-- Grid container -->
+      <div class="container p-4 pb-0"></div>
+          <!-- Github -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/zap3420" target="_blank" role="button"
+            ><i class="fab fa-github"></i
+          ></a>
+        </section>
+      </div>
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        <p style="font-weight: 600">Weather Checker</p>
+        All rights reserved
+      </div>
+    </footer>
+    <script src="moment.js"></script>
+    <script src="main.js"></script>
+    <script type="text/javascript" src="vanilla-tilt.babel.min.js"></script>
+    <script src="https://kit.fontawesome.com/e2f887b3ca.js" crossorigin="anonymous"></script>
+</body>
+</html>

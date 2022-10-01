@@ -2,9 +2,16 @@ let city = document.querySelector('.location .city');
 let temp = document.querySelector('.current .temp');
 let weather_el = document.querySelector('.current .weather');
 let hilow = document.querySelector('.hi-low');
+let wind = document.querySelector('.current .wind');
+let humidity = document.querySelector('.current .humidity');
+let pressure = document.querySelector('.current .pressure');
+// let weatherIcon = document.querySelector('.ikonica');
+// <img class="ikonica" src="" width="50" height="50" alt="icon"></img>
 let locate = document.querySelector('#geolocation');
 let yourDate = new Date();
 let newDate = yourDate.toISOString().split('T')[0];
+let kmh = 3.6;
+
 // 1
 let image1 = document.querySelector('.image1');
 let title1 = document.querySelector('.title1');
@@ -49,30 +56,48 @@ function setQuery(e){
         getResults(searchBox.value);
     }
 }
-function getResults(query){
-    fetch(`${api.base}/weather?q=${query}&appid=${api.key}&cnt=7&units=metric`) // forecast
+
+async function getResults(query){
+    await fetch(`${api.base}/weather?q=${query}&appid=${api.key}&cnt=7&units=metric`) // forecast
     .then(response =>{
         return response.json();
       })
     .then(displayResults);
 }
 
-function displayResults(response){
+async function displayResults(response){
     console.log(response);
     city.innerHTML = `${response.name}, ${response.sys.country}`;
     let now = new Date();   
     let date = document.querySelector('.location .date');
     date.innerText = getDate(now);
+    // weatherIcon.src = `http://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`;
     temp.innerHTML = `${Math.round(response.main.temp)}<span>°C</span>`;
     weather_el.innerText = response.weather[0].main;
-    hilow.innerText =`${Math.round(response.main.temp_min)}°C / ${Math.round(response.main.temp_max)}°C`;
-
+    hilow.innerText =`Feels like: ${Math.round(response.main.feels_like)}°C`;
+    wind.innerHTML = `Wind: ${Math.round(Number(response.wind.speed) * kmh)}km/h`;
+    humidity.innerHTML =`Humidity: ${response.main.humidity}%`;
+    pressure.innerHTML =`Barometer: ${response.main.pressure} mb`;
+    addClass();
+}   
+function addClass(){
     city.classList.add('fade-in-text');
-    date.classList.add('fade-in-text');
     temp.classList.add('fade-in-text');
     weather_el.classList.add('fade-in-text');
     hilow.classList.add('fade-in-text');
-}   
+    wind.classList.add('fade-in-text');
+    humidity.classList.add('fade-in-text');
+    pressure.classList.add('fade-in-text');
+    setTimeout(() => {
+        city.classList.remove('fade-in-text');
+        temp.classList.remove('fade-in-text');
+        weather_el.classList.remove('fade-in-text');
+        hilow.classList.remove('fade-in-text');
+        wind.classList.remove('fade-in-text');
+        humidity.classList.remove('fade-in-text');
+        pressure.classList.remove('fade-in-text');
+      }, 2500);
+    }
 function getDate(e){
     let months = ["January","February","March","April","May","June","July",
     "August","September","October","November","December"];
@@ -97,35 +122,33 @@ locate.addEventListener("click", () =>{
 function onError(error){
     console.log(error);
 }
-function getGeoResults(coordinates){
+async function getGeoResults(coordinates){
     const { latitude, longitude } = coordinates.coords;
 
-    fetch(`${api.base}/weather?lat=${latitude}&lon=${longitude}&appid=${api.key}&cnt=7&units=metric`)
+    await fetch(`${api.base}/weather?lat=${latitude}&lon=${longitude}&appid=${api.key}&cnt=7&units=metric`)
     .then(response =>{
         return response.json();
       })
     .then(displayResults);
 }
 
-function getNews(){
-    fetch(`${apiNews.base}?q=weather&from=${newDate}&sortBy=popularity&apiKey=${apiNews.key}`)
+async function getNews(){
+    await fetch(`${apiNews.base}?q=weather&from=${newDate}&apiKey=${apiNews.key}`)
     .then(response =>{
         const myJson = response.json();
-        // newsDataArray.push(myJson);
         return myJson;
       })
     .then(displayNews);
 }
 
 function displayNews(response){
+    console.log(response);
     //1 
     title1.innerHTML = `${response.articles[0].title}`;
     link1.href = `${response.articles[0].url}`;
     description1.innerHTML = `${response.articles[0].description}`;
     image1.src = `${response.articles[0].urlToImage}`;
     publishedDate1.innerHTML = moment(`${response.articles[0].publishedAt}`).fromNow();
-
-
     //2
     title2.innerHTML = `${response.articles[1].title}`;
     link2.href = `${response.articles[1].url}`;
@@ -146,6 +169,7 @@ function displayNews(response){
     publishedDate4.innerHTML = moment(`${response.articles[3].publishedAt}`).fromNow();
 }
 //run 
+
 if(window.attachEvent) {
     window.attachEvent('onload', getNews());
 } else {

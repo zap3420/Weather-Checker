@@ -13,7 +13,6 @@ body{
 }
 .app-wrap{
     min-height: 100vh;
-    background-image:linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.2));
 }
 header{
     justify-content: left;
@@ -121,7 +120,7 @@ main{
 
 .current .weather {
     color:#FFF;
-    font-size:32px;
+    font-size:1.5em;
     font-weight: 700;
     font-style: italic;
     text-shadow: 0px 3px rgba(0,0,0,0.4);
@@ -131,11 +130,35 @@ main{
 
 .current .hi-low{
     color:#FFF;
-    font-size:24px;
+    font-size:1.2em;
     font-weight: 700;
-    text-shadow: 0px 4px rgba(0,0,0,0.4);
+    text-shadow: 0px 4px rgba(0,0,0,0.2);
     display: flex;
     justify-content: center;
+}
+.current .wind{
+  color:#FFF;
+  font-size:1.2em;
+  font-weight: 500;
+  text-shadow: 0px 4px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+}
+.current .humidity{
+  color:#FFF;
+  font-size:1.2em;
+  font-weight: 500;
+  text-shadow: 0px 4px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+}
+.current .pressure{
+  color:#FFF;
+  font-size:1.2em;
+  font-weight: 500;
+  text-shadow: 0px 4px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
 }
 .nav-link:hover{
     color:black !important;
@@ -155,7 +178,6 @@ main{
     margin-bottom: 1em;
 }
 .box{
-    border: solid black 2px;
     width: 25em;
     height: 18em;
     backdrop-filter: blur( 4px );
@@ -174,18 +196,22 @@ main{
 .one {
     grid-column: 1 / 2;
     grid-row: 1;
+    height: 100%;
   }
   .two {
     grid-column: 2 / 3;
     grid-row: 1;
+    height: 100%;
   }
   .three {
     grid-column: 1 / 23;
     grid-row: 2;
+    height: 100%;
   }
   .four {
     grid-column: 2 / 3;
     grid-row: 2;
+    height: 100%;
   }
 
     /* 1 */
@@ -199,14 +225,17 @@ main{
     font-weight: 600;
     line-height: 1.4;
     margin-bottom: .5em;
+    padding: 5px 5px 5px 5px;
   }
   .description1{
     color:white;
     margin: 15px 0 !important;
+    padding: 5px 5px 5px 5px;
   }
   .published1{
     color: white;
     overflow-wrap: break-word;
+    padding: 5px 5px 5px 5px;
   }
     /* 2 */
   .image2{
@@ -219,14 +248,17 @@ main{
     font-weight: 600;
     line-height: 1.4;
     margin-bottom: .5em;
+    padding: 5px 5px 5px 5px;
   }
   .description2{
     color: rgb(255, 255, 255);
     margin: 15px 0 !important;
+    padding: 5px 5px 5px 5px;
   }
   .published2{
     color: white;
     overflow-wrap: break-word;
+    padding: 5px 5px 5px 5px;
   }
     /* 3 */
   .image3{
@@ -239,14 +271,17 @@ main{
     font-weight: 600;
     line-height: 1.4;
     margin-bottom: .5em;
+    padding: 5px 5px 5px 5px;
   }
   .description3{
     color:white;
     margin: 15px 0 !important;
+    padding: 5px 5px 5px 5px;
   }
   .published3{
     color: white;
     overflow-wrap: break-word;
+    padding: 5px 5px 5px 5px;
   }
     /* 4 */
   .image4{
@@ -259,12 +294,15 @@ main{
     font-weight: 600;
     line-height: 1.4;
     margin-bottom: .5em;
+    padding: 5px 5px 5px 5px;
   }
   .description4{
     color: white;
     margin: 15px 0 !important;
+    padding: 5px 5px 5px 5px;
   }
   .published4{
     color: white;
     overflow-wrap: break-word;
+    padding: 5px 5px 5px 5px;
   }

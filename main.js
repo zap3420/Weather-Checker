@@ -37,6 +37,13 @@ let description4 = document.querySelector('.description4');
 let publishedDate4 = document.querySelector('.published4');
 let link4 = document.querySelector('.link4');
 
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'ceb98900dfmsh73c475ad3e22f43p1f9775jsn721040f2e91c',
+		'X-RapidAPI-Host': 'weather338.p.rapidapi.com'
+	}
+};
 
 let api ={
     key: "f07b0f692267738658e7b8388c2216da",
@@ -44,7 +51,7 @@ let api ={
 }
 
 let apiNews = {
-    key:"7dae0e877e40493da8cf8d4634564d39",
+    key:"kaiOEmpxHgRz1sosUVop05QEqmhHk6",
     base:"https://newsapi.org/v2/everything"
 }
 
@@ -133,41 +140,43 @@ async function getGeoResults(coordinates){
 }
 
 async function getNews(){
-    await fetch(`${apiNews.base}?q=weather&from=${newDate}&apiKey=${apiNews.key}`)
-    .then(response =>{
+    await fetch('https://weather338.p.rapidapi.com/news/list?offset=0&limit=10', options)
+	.then(response =>{
         const myJson = response.json();
         return myJson;
       })
+	.catch(err => console.error(err))
     .then(displayNews);
 }
 
 function displayNews(response){
     console.log(response);
     //1 
-    title1.innerHTML = `${response.articles[0].title}`;
-    link1.href = `${response.articles[0].url}`;
-    description1.innerHTML = `${response.articles[0].description}`;
-    image1.src = `${response.articles[0].urlToImage}`;
-    publishedDate1.innerHTML = moment(`${response.articles[0].publishedAt}`).fromNow();
+    title1.innerHTML = `${response[0].title}`;
+    link1.href = `https://${response[0].providername}${response[0].assetName}`;
+    description1.innerHTML = `${response[0].description}`;
+    image1.src = `${response[0].variants[400]}`;
+    publishedDate1.innerHTML = moment(`${response[0].publishdate}`).fromNow();
     //2
-    title2.innerHTML = `${response.articles[1].title}`;
-    link2.href = `${response.articles[1].url}`;
-    description2.innerHTML = `${response.articles[1].description}`;
-    image2.src = `${response.articles[1].urlToImage}`;
-    publishedDate2.innerHTML = moment(`${response.articles[1].publishedAt}`).fromNow();
+    title2.innerHTML = `${response[1].title}`;
+    link2.href = `https://${response[1].providername}${response[1].assetName}`;
+    description2.innerHTML = `${response[1].description}`;
+    image2.src = `${response[1].variants[400]}`;
+    publishedDate2.innerHTML = moment(`${response[1].publishdate}`).fromNow();
     //3
-    title3.innerHTML = `${response.articles[2].title}`;
-    link3.href = `${response.articles[2].url}`;
-    description3.innerHTML = `${response.articles[2].description}`;
-    image3.src = `${response.articles[2].urlToImage}`;
-    publishedDate3.innerHTML = moment(`${response.articles[2].publishedAt}`).fromNow();
+    title3.innerHTML = `${response[2].title}`;
+    link3.href = `https://${response[2].providername}${response[2].assetName}`;
+    description3.innerHTML = `${response[2].description}`;
+    image3.src = `${response[2].variants[400]}`;
+    publishedDate3.innerHTML = moment(`${response[2].publishdate}`).fromNow();
     //4
-    title4.innerHTML = `${response.articles[3].title}`;
-    link4.href = `${response.articles[3].url}`;
-    description4.innerHTML = `${response.articles[3].description}`;
-    image4.src = `${response.articles[3].urlToImage}`;
-    publishedDate4.innerHTML = moment(`${response.articles[3].publishedAt}`).fromNow();
+    title4.innerHTML = `${response[3].title}`;
+    link4.href = `https://${response[3].providername}${response[3].assetName}`;
+    description4.innerHTML = `${response[3].description}`;
+    image4.src = `${response[3].variants[400]}`;
+    publishedDate4.innerHTML = moment(`${response[3].publishdate}`).fromNow();
 }
+
 //run 
 
 if(window.attachEvent) {

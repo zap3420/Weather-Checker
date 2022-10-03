@@ -411,5 +411,17 @@ main{
   .main {
     width: 100%;
   }
-    
 }  
+
+@media screen and (max-width:400px) {
+  .box{
+    width: 20em;
+    height: 100%;
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 11.5px );
+    background: rgba( 0, 0, 0, 0.30 );
+    color: white;
+    word-wrap: break-word;
+  }
+
+}

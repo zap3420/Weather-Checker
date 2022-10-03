@@ -423,5 +423,8 @@ main{
     color: white;
     word-wrap: break-word;
   }
+  .btn{
+    font-size: 0.9em;
+  }
 
 }

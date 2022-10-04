@@ -6,7 +6,7 @@ let wind = document.querySelector('.current .wind');
 let humidity = document.querySelector('.current .humidity');
 let pressure = document.querySelector('.current .pressure');
 let logo = document.querySelector('.logo');
-
+const newYork = 'New York';
 // let weatherIcon = document.querySelector('.ikonica');
 // <img class="ikonica" src="" width="50" height="50" alt="icon"></img>
 let locate = document.querySelector('#geolocation');
@@ -38,7 +38,6 @@ let title4 = document.querySelector('.title4');
 let description4 = document.querySelector('.description4');
 let publishedDate4 = document.querySelector('.published4');
 let link4 = document.querySelector('.link4');
-
 const options = {
 	method: 'GET',
 	headers: {
@@ -66,6 +65,14 @@ function setQuery(e){
     }
 }
 
+async function getWeather(){
+    await fetch(`${api.base}/weather?q=${newYork}&appid=${api.key}&cnt=7&units=metric`) // forecast
+    .then(response =>{
+        return response.json();
+      })
+    .then(displayResults);
+}
+
 async function getResults(query){
     await fetch(`${api.base}/weather?q=${query}&appid=${api.key}&cnt=7&units=metric`) // forecast
     .then(response =>{
@@ -75,7 +82,6 @@ async function getResults(query){
 }
 
 async function displayResults(response){
-    console.log(response);
     city.innerHTML = `${response.name}, ${response.sys.country}`;
     let now = new Date();   
     let date = document.querySelector('.location .date');
@@ -178,19 +184,23 @@ function displayNews(response){
     publishedDate4.innerHTML = moment(`${response[3].publishdate}`).fromNow();
 }
 
-//run 
+function getEverything() {
+    getNews();
+    getWeather();
+}
 
+//run 
 if(window.attachEvent) {
-    window.attachEvent('onload', getNews());
+    window.attachEvent('onload', getEverything());
 } else {
     if(window.onload) {
         var curronload = window.onload;
         var newonload = function(evt) {
             curronload(evt);
-            yourFunctionName(evt);
+            getEverything(evt);
         };
         window.onload = newonload;
     } else {
-        window.onload = getNews();
+        window.onload = getEverything();
     }
 }

@@ -306,7 +306,7 @@ main{
     padding: 5px 5px 5px 5px;
   }
 
-/* Responsive Design */
+/* Responsive Design */ 
 @media (min-width:851px) and (max-width:1350px) {
   .box{
     width: 35em;

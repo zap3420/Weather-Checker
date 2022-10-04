@@ -190,17 +190,17 @@ function getEverything() {
 }
 
 //run 
-if(window.attachEvent) {
-    window.attachEvent('onload', getEverything());
-} else {
-    if(window.onload) {
-        var curronload = window.onload;
-        var newonload = function(evt) {
-            curronload(evt);
-            getEverything(evt);
-        };
-        window.onload = newonload;
-    } else {
-        window.onload = getEverything();
-    }
-}
+// if(window.attachEvent) {
+//     window.attachEvent('onload', getEverything());
+// } else {
+//     if(window.onload) {
+//         var curronload = window.onload;
+//         var newonload = function(evt) {
+//             curronload(evt);
+//             getEverything(evt);
+//         };
+//         window.onload = newonload;
+//     } else {
+//         window.onload = getEverything();
+//     }
+// }

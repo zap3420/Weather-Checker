@@ -307,18 +307,7 @@ main{
   }
 
 /* Responsive Design */
-@media screen and (max-width:3000px) {
-  .box{
-    width: 40em;
-    height: 100%;
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 11.5px );
-    background: rgba( 0, 0, 0, 0.30 );
-    color: white;
-    word-wrap: break-word;
-  }
-}
-@media screen and (max-width:1300px) {
+@media (min-width:851px) and (max-width:1350px) {
   .box{
     width: 35em;
     height: 100%;
@@ -328,12 +317,36 @@ main{
     color: white;
     word-wrap: break-word;
   }
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .one {
+    grid-column: 1;
+    grid-row: 1;
+    height: 100%;
+  }
+  .two {
+    grid-column: 1;
+    grid-row: 2;
+    height: 100%;
+  }
+  .three {
+    grid-column: 1;
+    grid-row: 3;
+    height: 100%;
+  }
+  .four {
+    grid-column: 1;
+    grid-row: 4;
+    height: 100%;
+  }
 
 }
 
- @media screen and (max-width:1170px) {
+@media (min-width:751px) and (max-width:850px) {
   .box{
-    width: 32em;
+    width: 45em;
     height: 100%;
     padding: 10px;
     backdrop-filter: blur( 4px );
@@ -342,12 +355,36 @@ main{
     color: white;
     word-wrap: break-word;
   }
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .one {
+    grid-column: 1;
+    grid-row: 1;
+    height: 100%;
+  }
+  .two {
+    grid-column: 1;
+    grid-row: 2;
+    height: 100%;
+  }
+  .three {
+    grid-column: 1;
+    grid-row: 3;
+    height: 100%;
+  }
+  .four {
+    grid-column: 1;
+    grid-row: 4;
+    height: 100%;
+  }
 
 }
 
- @media screen and (max-width:1000px) {
+@media (min-width:651px) and (max-width:750px) {
   .box{
-    width: 29em;
+    width: 38em;
     height: 100%;
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 11.5px );
@@ -355,9 +392,34 @@ main{
     color: white;
     word-wrap: break-word;
   }
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .one {
+    grid-column: 1;
+    grid-row: 1;
+    height: 100%;
+  }
+  .two {
+    grid-column: 1;
+    grid-row: 2;
+    height: 100%;
+  }
+  .three {
+    grid-column: 1;
+    grid-row: 3;
+    height: 100%;
+  }
+  .four {
+    grid-column: 1;
+    grid-row: 4;
+    height: 100%;
+  }
+  
 }
 
- @media screen and (max-width:800px) {
+@media (min-width:501px) and (max-width:650px) {
   .title1{
     color: white;
     font-size: 16px;
@@ -383,7 +445,7 @@ main{
     line-height: 1.2;
   }
   .box{
-    width: 23.5em;
+    width: 29em;
     height: 100%;
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 11.5px );
@@ -391,9 +453,42 @@ main{
     color: white;
     word-wrap: break-word;
   }
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .one {
+    grid-column: 1;
+    grid-row: 1;
+    height: 100%;
+  }
+  .two {
+    grid-column: 1;
+    grid-row: 2;
+    height: 100%;
+  }
+  .three {
+    grid-column: 1;
+    grid-row: 3;
+    height: 100%;
+  }
+  .four {
+    grid-column: 1;
+    grid-row: 4;
+    height: 100%;
+  }
 
 }
-  @media screen and (max-width:500px) {
+@media (min-width:451px) and (max-width:500px) {
+    .box{
+      width: 26em;
+      height: 100%;
+      backdrop-filter: blur( 4px );
+      -webkit-backdrop-filter: blur( 11.5px );
+      background: rgba( 0, 0, 0, 0.30 );
+      color: white;
+      word-wrap: break-word;
+    }
     .wrapper {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -426,9 +521,9 @@ main{
   }
 }  
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:450px) {
   .box{
-    width: 20em;
+    width: 17em;
     height: 100%;
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 11.5px );
@@ -442,4 +537,34 @@ main{
   .navbar-brand{
     font-size: 1.15rem;
   }
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .one {
+    grid-column: 1;
+    grid-row: 1;
+    height: 100%;
+  }
+  .two {
+    grid-column: 1;
+    grid-row: 2;
+    height: 100%;
+  }
+  .three {
+    grid-column: 1;
+    grid-row: 3;
+    height: 100%;
+  }
+  .four {
+    grid-column: 1;
+    grid-row: 4;
+    height: 100%;
+  }
+.main {
+  width: 100%;
+}
+.navbar-brand{
+  font-size: 1.15rem;
+}
 }

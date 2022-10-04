@@ -307,6 +307,17 @@ main{
   }
 
 /* Responsive Design */
+@media screen and (max-width:3000px) {
+  .box{
+    width: 40em;
+    height: 100%;
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 11.5px );
+    background: rgba( 0, 0, 0, 0.30 );
+    color: white;
+    word-wrap: break-word;
+  }
+}
 @media screen and (max-width:1300px) {
   .box{
     width: 35em;

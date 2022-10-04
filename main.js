@@ -5,6 +5,8 @@ let hilow = document.querySelector('.hi-low');
 let wind = document.querySelector('.current .wind');
 let humidity = document.querySelector('.current .humidity');
 let pressure = document.querySelector('.current .pressure');
+let logo = document.querySelector('.logo');
+
 // let weatherIcon = document.querySelector('.ikonica');
 // <img class="ikonica" src="" width="50" height="50" alt="icon"></img>
 let locate = document.querySelector('#geolocation');
@@ -150,7 +152,6 @@ async function getNews(){
 }
 
 function displayNews(response){
-    console.log(response);
     //1 
     title1.innerHTML = `${response[0].title}`;
     link1.href = `https://${response[0].providername}${response[0].assetName}`;

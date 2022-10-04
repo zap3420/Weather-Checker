@@ -3,7 +3,6 @@
     padding:0;
     box-sizing: border-box;
 }
-
 body{
     font-family: Helvetica, sans-serif;
     background-image:url('https://source.unsplash.com/1600x900/?landscape');
@@ -411,6 +410,9 @@ main{
   .main {
     width: 100%;
   }
+  .navbar-brand{
+    font-size: 1.15rem;
+  }
 }  
 
 @media screen and (max-width:400px) {
@@ -426,5 +428,7 @@ main{
   .btn{
     font-size: 0.9em;
   }
-
+  .navbar-brand{
+    font-size: 1.15rem;
+  }
 }

@@ -576,7 +576,7 @@ main{
   box-sizing: border-box;
   height: 20em;
   width: 20em;
-  margin-left: 2em;
+  margin-left: 1.5em;
 }
 .chart {
   background: #212733;

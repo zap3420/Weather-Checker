@@ -307,7 +307,7 @@ main{
   }
 
 /* Responsive Design */ 
-@media (min-width:851px) and (max-width:1350px) {
+@media (min-width:851px) and (max-width:3000px) {
   .box{
     width: 35em;
     height: 100%;
@@ -567,4 +567,19 @@ main{
 .navbar-brand{
   font-size: 1.15rem;
 }
+}
+
+/* Canvas */
+
+#myChart{
+  display: block;
+  box-sizing: border-box;
+  height: 20em;
+  width: 30em;
+}
+.chart {
+  background: #212733;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgba(1, 182, 247, 0.41);
+  margin:  25px 0;
 }

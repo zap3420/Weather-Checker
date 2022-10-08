@@ -7,6 +7,9 @@ let humidity = document.querySelector('.current .humidity');
 let pressure = document.querySelector('.current .pressure');
 let logo = document.querySelector('.logo');
 const newYork = 'New York';
+let ytemps =[];
+let xtemps = ['Today','Tomorow', 'In 2 days','In 3 days','In 4 days','In 5 days','In 6 days'];
+
 // let weatherIcon = document.querySelector('.ikonica');
 // <img class="ikonica" src="" width="50" height="50" alt="icon"></img>
 let locate = document.querySelector('#geolocation');
@@ -38,6 +41,34 @@ let title4 = document.querySelector('.title4');
 let description4 = document.querySelector('.description4');
 let publishedDate4 = document.querySelector('.published4');
 let link4 = document.querySelector('.link4');
+
+// Canvas
+let posColour = 'rgba(0, 255, 0, .1)';
+let  negColour = 'rgba(255, 0, 0, .1)';
+
+let myChart = document.getElementById('myChart').getContext('2d');
+let massPopChart = new Chart(myChart, {
+    type: 'line',
+    data:{
+        labels: xtemps,
+        datasets:[{
+            label:'Temperature',
+            backgroundColor:'rgb(5,195,221)',
+            data: ytemps,
+            borderWidth: 1,
+            borderColor:'#FFFFFF',
+        }],
+        chartArea: {
+            backgroundColor: 'rgba(251, 85, 85, 0.4)'
+        }
+    },
+    options:{}
+})
+
+function updateData(){
+    massPopChart.data.datasets.data.push(ytemps);
+}
+
 const options = {
 	method: 'GET',
 	headers: {
@@ -62,19 +93,11 @@ searchBox.addEventListener('keypress', setQuery);
 function setQuery(e){
     if(e.keyCode == 13 ){
         getResults(searchBox.value);
-    }
-}
-
-async function getWeather(){
-    await fetch(`${api.base}/weather?q=${newYork}&appid=${api.key}&cnt=7&units=metric`) // forecast
-    .then(response =>{
-        return response.json();
-      })
-    .then(displayResults);
+    } 
 }
 
 async function getResults(query){
-    await fetch(`${api.base}/weather?q=${query}&appid=${api.key}&cnt=7&units=metric`) // forecast
+    await fetch(`${api.base}/forecast?q=${query}&appid=${api.key}&cnt=7&units=metric`) // forecast
     .then(response =>{
         return response.json();
       })
@@ -82,18 +105,21 @@ async function getResults(query){
 }
 
 async function displayResults(response){
-    city.innerHTML = `${response.name}, ${response.sys.country}`;
+    console.log(response);
+    city.innerHTML = `${response.city.name}, ${response.city.country}`;
     let now = new Date();   
     let date = document.querySelector('.location .date');
     date.innerText = getDate(now);
-    // weatherIcon.src = `http://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`;
-    temp.innerHTML = `${Math.round(response.main.temp)}<span>°C</span>`;
-    weather_el.innerText = response.weather[0].main;
-    hilow.innerText =`Feels like: ${Math.round(response.main.feels_like)}°C`;
-    wind.innerHTML = `Wind: ${Math.round(Number(response.wind.speed) * kmh)}km/h`;
-    humidity.innerHTML =`Humidity: ${response.main.humidity}%`;
-    pressure.innerHTML =`Barometer: ${response.main.pressure} mb`;
+    temp.innerHTML = `${Math.round(response.list[0].main.temp)}<span>°C</span>`; 
+    weather_el.innerText = response.list[0].weather[0].main;
+    hilow.innerText =`Feels like: ${Math.round(response.list[0].main.feels_like)}°C`;
+    wind.innerHTML = `Wind: ${Math.round(Number(response.list[0].wind.speed) * kmh)}km/h`;
+    humidity.innerHTML =`Humidity: ${response.list[0].main.humidity} %`;
+    pressure.innerHTML =`Barometer: ${response.list[0].main.pressure} mb`;
+    ytemps.splice(0, ytemps.length);
+    ytemps.push( Math.round(response.list[0].main.temp), Math.round(response.list[1].main.temp), Math.round(response.list[2].main.temp), Math.round(response.list[3].main.temp),Math.round(response.list[4].main.temp), Math.round(response.list[5].main.temp), Math.round(response.list[6].main.temp));
     addClass();
+    massPopChart.update();
 }   
 function addClass(){
     city.classList.add('fade-in-text');
@@ -186,10 +212,10 @@ function displayNews(response){
 
 function getEverything() {
     getNews();
-    getWeather();
 }
 
 //run 
+
 if(window.attachEvent) {
     window.attachEvent('onload', getEverything());
 } else {
@@ -204,3 +230,4 @@ if(window.attachEvent) {
         window.onload = getEverything();
     }
 }
+

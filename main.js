@@ -166,7 +166,7 @@ function onError(error){
 async function getGeoResults(coordinates){
     const { latitude, longitude } = coordinates.coords;
 
-    await fetch(`${api.base}/weather?lat=${latitude}&lon=${longitude}&appid=${api.key}&cnt=7&units=metric`)
+    await fetch(`${api.base}/forecast?lat=${latitude}&lon=${longitude}&appid=${api.key}&cnt=7&units=metric`)
     .then(response =>{
         return response.json();
       })

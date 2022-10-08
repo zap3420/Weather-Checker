@@ -105,7 +105,6 @@ async function getResults(query){
 }
 
 async function displayResults(response){
-    console.log(response);
     city.innerHTML = `${response.city.name}, ${response.city.country}`;
     let now = new Date();   
     let date = document.querySelector('.location .date');
@@ -152,7 +151,6 @@ function getDate(e){
 }
 
 locate.addEventListener("click", () =>{
-    console.log('it works');
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(getGeoResults, onError);
     }else{

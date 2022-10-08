@@ -114,7 +114,7 @@ async function displayResults(response){
     weather_el.innerText = response.list[0].weather[0].main;
     hilow.innerText =`Feels like: ${Math.round(response.list[0].main.feels_like)}°C`;
     wind.innerHTML = `Wind: ${Math.round(Number(response.list[0].wind.speed) * kmh)}km/h`;
-    humidity.innerHTML =`Humidity: ${response.list[0].main.humidity} %`;
+    humidity.innerHTML =`Humidity: ${response.list[0].main.humidity}%`;
     pressure.innerHTML =`Barometer: ${response.list[0].main.pressure} mb`;
     ytemps.splice(0, ytemps.length);
     ytemps.push( Math.round(response.list[0].main.temp), Math.round(response.list[1].main.temp), Math.round(response.list[2].main.temp), Math.round(response.list[3].main.temp),Math.round(response.list[4].main.temp), Math.round(response.list[5].main.temp), Math.round(response.list[6].main.temp));

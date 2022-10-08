@@ -46,7 +46,7 @@ main{
     -webkit-backdrop-filter: blur( 11.5px );
     border: 1px solid rgba(0, 0, 0, 0.18);
     color: white;
-    padding: 5em;
+    padding: 3em;
     border-radius: 30px;
     margin: 1.5em;
     overflow: hidden;

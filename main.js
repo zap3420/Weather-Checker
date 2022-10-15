@@ -6,6 +6,7 @@ let wind = document.querySelector('.current .wind');
 let humidity = document.querySelector('.current .humidity');
 let pressure = document.querySelector('.current .pressure');
 let logo = document.querySelector('.logo');
+let icon = document.querySelector('.weather-icon');
 const newYork = 'New York';
 let ytemps =[];
 let xtemps = ['Today','Tomorow', 'In 2 days','In 3 days','In 4 days','In 5 days','In 6 days'];
@@ -105,14 +106,18 @@ async function getResults(query){
 }
 
 async function displayResults(response){
+    console.log(response);
     city.innerHTML = `${response.city.name}, ${response.city.country}`;
     let now = new Date();   
     let date = document.querySelector('.location .date');
     date.innerText = getDate(now);
     temp.innerHTML = `${Math.round(response.list[0].main.temp)}<span>°C</span>`; 
-    weather_el.innerText = response.list[0].weather[0].main;
+
+    weather_el.innerHTML = `
+    <img class="weather-icon" src='icons/${response.list[0].weather[0].icon}.png' width=50 height=50/> ${response.list[0].weather[0].main}`;
+
     hilow.innerText =`Feels like: ${Math.round(response.list[0].main.feels_like)}°C`;
-    wind.innerHTML = `Wind: ${Math.round(Number(response.list[0].wind.speed) * kmh)}km/h`;
+    wind.innerHTML = `Wind: ${Math.round(Number(response.list[0].wind.speed) * kmh)} km/h`;
     humidity.innerHTML =`Humidity: ${response.list[0].main.humidity}%`;
     pressure.innerHTML =`Barometer: ${response.list[0].main.pressure} mb`;
     ytemps.splice(0, ytemps.length);

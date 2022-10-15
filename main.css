@@ -46,12 +46,28 @@ main{
     -webkit-backdrop-filter: blur( 11.5px );
     border: 1px solid rgba(0, 0, 0, 0.18);
     color: white;
-    padding: 3em;
-    border-radius: 30px;
+    padding: 2.5em;
+    border-radius: 20px;
     margin: 1.5em;
     overflow: hidden;
+    height: fit-content;
+    width: fit-content;
 
 }
+.canvasDiv{
+  width: fit-content;
+  height: fit-content;
+  padding-right: 1em;
+}
+.weather-canvas{
+  display: flex;
+  flex-direction: column;
+}
+/* .weather-icon{
+  height: 32px;
+  width: 32px;
+} */
+
 .fade-in-text {
   animation: fadeIn 2s;
   -webkit-animation: fadeIn 2s;
@@ -118,7 +134,7 @@ main{
 
 .current .weather {
     color:#FFF;
-    font-size:1.5em;
+    font-size: 2em;
     font-weight: 700;
     font-style: italic;
     text-shadow: 0px 3px rgba(0,0,0,0.4);
@@ -513,9 +529,6 @@ main{
       grid-row: 4;
       height: 100%;
     }
-  .main {
-    width: 100%;
-  }
   .navbar-brand{
     font-size: 1.15rem;
   }
@@ -561,9 +574,7 @@ main{
     grid-row: 4;
     height: 100%;
   }
-.main {
-  width: 100%;
-}
+
 .navbar-brand{
   font-size: 1.15rem;
 }

@@ -131,7 +131,6 @@ main{
     display: flex;
     justify-content: center;
 }
-
 .current .weather {
     color:#FFF;
     font-size: 2em;
@@ -141,7 +140,18 @@ main{
     display: flex;
     justify-content: center;
 }
-
+.logo{
+  color:rgb(235, 151, 5) !important;
+}
+.btn-outline-warning:hover {
+  color: #212529 !important;
+  background-color: rgb(235, 151, 5) !important;
+  border-color: rgb(235, 151, 5) !important;
+}
+.btn-outline-warning {
+  color: rgb(235, 151, 5) !important;
+  border-color: rgb(235, 151, 5) !important;
+}
 .current .hi-low{
     color:#FFF;
     font-size:1.2em;

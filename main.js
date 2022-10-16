@@ -10,9 +10,6 @@ let icon = document.querySelector('.weather-icon');
 const newYork = 'New York';
 let ytemps =[];
 let xtemps = ['Today','Tomorow', 'In 2 days','In 3 days','In 4 days','In 5 days','In 6 days'];
-
-// let weatherIcon = document.querySelector('.ikonica');
-// <img class="ikonica" src="" width="50" height="50" alt="icon"></img>
 let locate = document.querySelector('#geolocation');
 let yourDate = new Date();
 let newDate = yourDate.toISOString().split('T')[0];
@@ -96,7 +93,6 @@ function setQuery(e){
         getResults(searchBox.value);
     } 
 }
-
 async function getResults(query){
     await fetch(`${api.base}/forecast?q=${query}&appid=${api.key}&cnt=7&units=metric`) // forecast
     .then(response =>{
@@ -233,4 +229,3 @@ if(window.attachEvent) {
         window.onload = getEverything();
     }
 }
-

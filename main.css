@@ -48,7 +48,7 @@ main{
     color: white;
     padding: 2.5em;
     border-radius: 20px;
-    margin: 1.5em;
+    margin: 0.5em 1.5em 1.5em 1.5em;
     overflow: hidden;
     height: fit-content;
     width: fit-content;
@@ -195,7 +195,7 @@ main{
     margin-left: 10px;
 }
 #title{
-    color: rgba(255, 255, 255, 0.85);
+    color: rgb(235, 151, 5);
     font-size: 30px;
     font-weight: 600;
     line-height: 1.35;

@@ -14,6 +14,8 @@ let locate = document.querySelector('#geolocation');
 let yourDate = new Date();
 let newDate = yourDate.toISOString().split('T')[0];
 let kmh = 3.6;
+let celsius = document.querySelector('.celsius-btn');
+let fahrenheit =document.querySelector('.fahrenheit-btn');
 
 // 1
 let image1 = document.querySelector('.image1');
@@ -42,7 +44,7 @@ let link4 = document.querySelector('.link4');
 
 // Canvas
 let posColour = 'rgba(0, 255, 0, .1)';
-let  negColour = 'rgba(255, 0, 0, .1)';
+let negColour = 'rgba(255, 0, 0, .1)';
 
 let myChart = document.getElementById('myChart').getContext('2d');
 let massPopChart = new Chart(myChart, {
@@ -51,7 +53,7 @@ let massPopChart = new Chart(myChart, {
         labels: xtemps,
         datasets:[{
             label:'Temperature',
-            backgroundColor:'rgb(5,195,221)',
+            backgroundColor:'rgba(235, 151, 5)',
             data: ytemps,
             borderWidth: 1,
             borderColor:'#FFFFFF',
@@ -107,13 +109,13 @@ async function displayResults(response){
     let now = new Date();   
     let date = document.querySelector('.location .date');
     date.innerText = getDate(now);
-    temp.innerHTML = `${Math.round(response.list[0].main.temp)}<span>°C</span>`; 
+    temp.innerHTML = `<span class="current-temp">${Math.round(response.list[0].main.temp)}</span><span class="unit">°C</span>`; 
 
     weather_el.innerHTML = `
     <img class="weather-icon" src='icons/${response.list[0].weather[0].icon}.png' width=50 height=50/> ${response.list[0].weather[0].main}`;
 
-    hilow.innerText =`Feels like: ${Math.round(response.list[0].main.feels_like)}°C`;
-    wind.innerHTML = `Wind: ${Math.round(Number(response.list[0].wind.speed) * kmh)} km/h`;
+    hilow.innerHTML =`Feels like: <span class="feels-like"> ${Math.round(response.list[0].main.feels_like)}</span><span class="unit">°C</span>`;
+    wind.innerHTML = `Wind: ${Math.round(Number(response.list[0].wind.speed) * kmh)} <span class="unit">km/h</span>`;
     humidity.innerHTML =`Humidity: ${response.list[0].main.humidity}%`;
     pressure.innerHTML =`Barometer: ${response.list[0].main.pressure} mb`;
     ytemps.splice(0, ytemps.length);
@@ -209,7 +211,9 @@ function displayNews(response){
     publishedDate4.innerHTML = moment(`${response[3].publishdate}`).fromNow();
 }
 
+
 function getEverything() {
+    getResults('Paris');
     getNews();
 }
 

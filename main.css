@@ -8,6 +8,7 @@ body{
     background-image:url('https://source.unsplash.com/1600x900/?landscape');
     background-size: cover;
     background-position: top center;
+    line-height: 1.2 !important;
 
 }
 .app-wrap{
@@ -16,9 +17,15 @@ body{
 header{
     justify-content: left;
     align-items: left;
-    padding: 50px 15px 15px;
+    padding: 50px 15px 43px;
 }
-
+hr {
+  border: none;
+  height: 2px;
+  /* Set the hr color */
+  color: #eb9705; /* old IE */
+  background-color: #eb9705; /* Modern Browsers */
+}
 header input{
     width:100%;
     max-width: 280px;
@@ -41,7 +48,7 @@ header input:focus{
 }
 main{
     background: rgba( 0, 0, 0, 0.30 );
-    box-shadow: 0 8px 32px 0 rgba(1, 182, 247, 0.41);
+    box-shadow: 0 4px 16px 0 rgba(235, 151, 5, 1);
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 11.5px );
     border: 1px solid rgba(0, 0, 0, 0.18);
@@ -209,7 +216,17 @@ main{
     background: rgba( 0, 0, 0, 0.30 );
     color: white;
     word-wrap: break-word;
-    box-shadow: 0 8px 32px 0 rgba(1, 182, 247, 0.41);
+    box-shadow: 0 4px 16px 0 rgba(235, 151, 5, 1);
+}
+.novella {
+    width: 20em;
+    height: 15em;
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 11.5px );
+    background: rgba( 0, 0, 0, 0.30 );
+    color: white;
+    word-wrap: break-word;
+    box-shadow: 0 4px 16px 0 rgba(235, 151, 5, 1);
 }
 .wrapper{
     display: grid;
@@ -602,6 +619,6 @@ main{
 .chart {
   background: #212733;
   border-radius: 15px;
-  box-shadow: 0 8px 32px 0 rgba(1, 182, 247, 0.41);
+  box-shadow: 0 4px 16px 0 rgba(235, 151, 5, 1);
   margin:  25px 0;
 }

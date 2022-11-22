@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="main.css">
+    <script src="three.min.js"></script>
+    <script src="vanta.clouds.min.js"></script>
 </head>
-<body>
+<body id="body">
     <nav class="navbar navbar-expand navbar-dark shadow-5-strong">
         <a class="navbar-brand logo" href="#" >Weather Checker</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -105,4 +107,21 @@
     <script type="text/javascript" src="vanilla-tilt.babel.min.js"></script>
     <script src="https://kit.fontawesome.com/e2f887b3ca.js" crossorigin="anonymous"></script>
 </body>
+<script>
+VANTA.CLOUDS({
+  el: "#body",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  skyColor: 0x5293d4,
+  cloudColor: 0xaaafc0,
+  cloudShadowColor: 0x8895af,
+  sunColor: 0xfffe18,
+  sunGlareColor: 0x0,
+  sunlightColor: 0xe8e2bb,
+  speed: 0.60
+})
+</script>
 </html>

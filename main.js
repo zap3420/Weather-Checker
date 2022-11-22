@@ -64,7 +64,6 @@ let massPopChart = new Chart(myChart, {
     },
     options:{}
 })
-
 function updateData(){
     massPopChart.data.datasets.data.push(ytemps);
 }
@@ -233,3 +232,4 @@ if(window.attachEvent) {
         window.onload = getEverything();
     }
 }
+

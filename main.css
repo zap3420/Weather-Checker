@@ -5,7 +5,7 @@
 }
 body{
     font-family: Helvetica, sans-serif;
-    /* background-image:url('https://source.unsplash.com/2000x1500/?landscape'); */
+    background-image:url('https://source.unsplash.com/2000x1500/?landscape');
     background-size: cover;
     background-position: top center;
     line-height: 1.2 !important;
@@ -32,12 +32,12 @@ header input{
     padding:10px 15px;
     border:none;
     outline:none;
-    background-color: rgba(255,255,255,0.3);
+    background: rgba(0, 0, 0, 0.075);
     border-radius: 16px 0px 16px 0px;
     border-bottom: 3px solid #eb9705;
 
 
-    color: #313131;
+    color: #000000;
     font-size:20px;
     font-weight: 300;
     transition: 0.2 ease-out;
@@ -48,7 +48,7 @@ header input:focus{
 }
 main{
     background: rgba( 0, 0, 0, 0.30 );
-    box-shadow: 0 4px 16px 0 rgba(235, 151, 5, 1);
+    /* box-shadow: 0 4px 16px 0 rgba(235, 151, 5, 1); */
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 11.5px );
     border: 1px solid rgba(0, 0, 0, 0.18);
@@ -216,17 +216,7 @@ main{
     background: rgba( 0, 0, 0, 0.30 );
     color: white;
     word-wrap: break-word;
-    box-shadow: 0 4px 16px 0 rgba(235, 151, 5, 1);
-}
-.novella {
-    width: 20em;
-    height: 15em;
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 11.5px );
-    background: rgba( 0, 0, 0, 0.30 );
-    color: white;
-    word-wrap: break-word;
-    box-shadow: 0 4px 16px 0 rgba(235, 151, 5, 1);
+    /* box-shadow: 0 4px 16px 0 rgba(235, 151, 5, 1); */
 }
 .wrapper{
     display: grid;
@@ -348,7 +338,10 @@ main{
     overflow-wrap: break-word;
     padding: 5px 5px 5px 5px;
   }
-
+  #footer{
+    position: relative;
+    z-index: 0 !important;
+  }
 /* Responsive Design */ 
 @media (min-width:851px) and (max-width:3000px) {
   .box{
@@ -619,6 +612,6 @@ main{
 .chart {
   background: #212733;
   border-radius: 15px;
-  box-shadow: 0 4px 16px 0 rgba(235, 151, 5, 1);
+  /* box-shadow: 0 4px 16px 0 rgba(235, 151, 5, 1); */
   margin:  25px 0;
 }

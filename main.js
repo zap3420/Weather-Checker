@@ -74,6 +74,7 @@ let massPopChart = new Chart(myChart, {
   },
   options: {},
 });
+
 function updateData() {
   massPopChart.data.datasets.data.push(ytemps);
 }
@@ -127,7 +128,7 @@ async function displayResults(response) {
   weather_el.innerHTML = `
     <img class="weather-icon" src='icons/${response.list[0].weather[0].icon}.png' width=50 height=50/> ${response.list[0].weather[0].main}`;
 
-  hilow.innerHTML = `Feels like: <span class="feels-like"> ${Math.round(
+  hilow.innerHTML = `Feels like: <span class="feels-like"> &nbsp;${Math.round(
     response.list[0].main.feels_like
   )}</span><span class="unit">°C</span>`;
   wind.innerHTML = `Wind: ${Math.round(

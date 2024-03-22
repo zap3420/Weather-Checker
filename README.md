@@ -5,4 +5,4 @@ Hosted on: https://weatherchecker342.netlify.app/
 
 ## About Project 
 
-The plan was to create a basic, practical app with real data that would allow me to demonstrate my abilities to retrieve data, process the response, and update it. 
+The plan was to create a basic, practical mobile app with real data that would allow me to demonstrate my abilities to retrieve data, process the response, and update it.
